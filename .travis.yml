@@ -1,12 +1,12 @@
 language: python
 python:
   - 2.7
-  - 3.3
+
 install:
 
   - pip install coveralls
 script:
-  coverage run --source=moscowdjango,meetup manage.py test
+  coverage run test_rpn.py test
 after_success:
   coveralls
 
