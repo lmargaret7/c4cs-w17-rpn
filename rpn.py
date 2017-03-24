@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import operator
+from colorama import *
 
 OPERATORS = {
 	'+': operator.add,
@@ -43,8 +44,21 @@ def calculate_3(arg):
 
 def main():
 	while True:
-		#result = calculate(input('rpn calc> '))
-		result = calculate_3(input('rpn calc_3> '))
+		user_in = input('rpn calc> ')
+		
+		result = calculate(user_in)
+		for operand in user_in.split():
+		    try:
+			    if float(operand) < 0:
+				    print Back.RED + operand,
+			    else:
+				    print operand,
+		    except:
+		        print Back.GREEN + operand,
+
+		print(Style.RESET_ALL)
+		
+		#result = calculate_3(input('rpn calc_3> '))
 		print("Result:", result)
 
 if __name__ == '__main__':
